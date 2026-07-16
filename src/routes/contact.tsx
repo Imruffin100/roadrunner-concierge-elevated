@@ -31,10 +31,44 @@ function Contact() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const total = 4;
 
   const update = (k: keyof FormState, v: string) => setData((d) => ({ ...d, [k]: v }));
-  const onSubmit = (e: FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("https://formspree.io/f/xnjejzyy", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: data.fullName,
+          phone: data.phone,
+          email: data.email,
+          address: data.address,
+          service: data.service,
+          date: data.date,
+          time: data.time,
+          transportation: data.transportation,
+          notes: data.notes,
+          emergencyContact: data.emergencyContact,
+          contactMethod: data.contactMethod,
+          _subject: `New inquiry from ${data.fullName || "website"}`,
+        }),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      setSubmitted(true);
+      setData(initial);
+    } catch (err) {
+      setError("Something went wrong. Please try again or call us at 409-455-1963.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <PageShell>
@@ -117,16 +151,16 @@ function Contact() {
                   {step === 0 && (
                     <div className="grid sm:grid-cols-2 gap-5">
                       <Field label="Full name" required>
-                        <input required value={data.fullName} onChange={(e) => update("fullName", e.target.value)} className={inputCls} placeholder="Margaret Alvarez" />
+                        <input required name="fullName" value={data.fullName} onChange={(e) => update("fullName", e.target.value)} className={inputCls} placeholder="Margaret Alvarez" />
                       </Field>
                       <Field label="Phone" required>
-                        <input required type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} className={inputCls} placeholder="(281) 555-0134" />
+                        <input required name="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} className={inputCls} placeholder="(281) 555-0134" />
                       </Field>
                       <Field label="Email">
-                        <input type="email" value={data.email} onChange={(e) => update("email", e.target.value)} className={inputCls} placeholder="you@example.com" />
+                        <input name="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} className={inputCls} placeholder="you@example.com" />
                       </Field>
                       <Field label="Home address" required>
-                        <input required value={data.address} onChange={(e) => update("address", e.target.value)} className={inputCls} placeholder="1234 Cypress Ln, Houston, TX" />
+                        <input required name="address" value={data.address} onChange={(e) => update("address", e.target.value)} className={inputCls} placeholder="1234 Cypress Ln, Houston, TX" />
                       </Field>
                     </div>
                   )}
@@ -134,16 +168,16 @@ function Contact() {
                   {step === 1 && (
                     <div className="grid sm:grid-cols-2 gap-5">
                       <Field label="Service needed" required className="sm:col-span-2">
-                        <select required value={data.service} onChange={(e) => update("service", e.target.value)} className={inputCls}>
+                        <select required name="service" value={data.service} onChange={(e) => update("service", e.target.value)} className={inputCls}>
                           <option value="">Select a service…</option>
                           {["Grocery Shopping","Pharmacy Pickup","Personal Transportation","Pet Transportation","Dry Cleaning","Post Office","Home Management","Errand Bundle","Other"].map(o => <option key={o}>{o}</option>)}
                         </select>
                       </Field>
                       <Field label="Preferred date">
-                        <input type="date" value={data.date} onChange={(e) => update("date", e.target.value)} className={inputCls} />
+                        <input name="date" type="date" value={data.date} onChange={(e) => update("date", e.target.value)} className={inputCls} />
                       </Field>
                       <Field label="Preferred time">
-                        <input type="time" value={data.time} onChange={(e) => update("time", e.target.value)} className={inputCls} />
+                        <input name="time" type="time" value={data.time} onChange={(e) => update("time", e.target.value)} className={inputCls} />
                       </Field>
                       <Field label="Transportation needed?" className="sm:col-span-2">
                         <div className="flex gap-3">
@@ -161,10 +195,10 @@ function Contact() {
                   {step === 2 && (
                     <div className="grid gap-5">
                       <Field label="Additional notes">
-                        <textarea rows={5} value={data.notes} onChange={(e) => update("notes", e.target.value)} className={inputCls} placeholder="Tell us anything that will help us take great care of you." />
+                        <textarea name="notes" rows={5} value={data.notes} onChange={(e) => update("notes", e.target.value)} className={inputCls} placeholder="Tell us anything that will help us take great care of you." />
                       </Field>
                       <Field label="Emergency contact">
-                        <input value={data.emergencyContact} onChange={(e) => update("emergencyContact", e.target.value)} className={inputCls} placeholder="Name and phone number" />
+                        <input name="emergencyContact" value={data.emergencyContact} onChange={(e) => update("emergencyContact", e.target.value)} className={inputCls} placeholder="Name and phone number" />
                       </Field>
                     </div>
                   )}
@@ -188,11 +222,18 @@ function Contact() {
                     </div>
                   )}
 
+                  {error && (
+                    <div className="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+                      <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+                      <span>{error}</span>
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between pt-2">
                     <button
                       type="button"
                       onClick={() => setStep((s) => Math.max(0, s - 1))}
-                      disabled={step === 0}
+                      disabled={step === 0 || submitting}
                       className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-[var(--brand-deep)] disabled:opacity-30"
                     >
                       <ArrowLeft className="h-4 w-4" /> Back
@@ -202,8 +243,8 @@ function Contact() {
                         Continue <ArrowRight className="h-4 w-4" />
                       </button>
                     ) : (
-                      <button type="submit" className="btn-primary">
-                        Submit request <Check className="h-4 w-4" />
+                      <button type="submit" disabled={submitting} className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed">
+                        {submitting ? "Sending…" : <>Submit request <Check className="h-4 w-4" /></>}
                       </button>
                     )}
                   </div>
