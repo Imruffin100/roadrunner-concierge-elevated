@@ -131,9 +131,9 @@ function Contact() {
               {submitted ? (
                 <div className="text-center py-10">
                   <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[var(--ember-soft)] text-[var(--ember)]"><Check className="h-8 w-8" /></div>
-                  <h2 className="mt-6 font-display text-4xl text-[var(--brand-deep)]">Thank you, {data.fullName || "friend"}.</h2>
+                  <h2 className="mt-6 font-display text-4xl text-[var(--brand-deep)]">Thank you!</h2>
                   <p className="mt-4 text-[var(--brand-deep)]/70 max-w-md mx-auto leading-relaxed">
-                    We received your request and will follow up personally within one business day. In the meantime, feel free to give us a call — we'd love to hear your voice.
+                    Your request has been received. We'll be in touch shortly.
                   </p>
                   <a href="tel:4094551963" className="btn-primary mt-8"><Phone className="h-4 w-4" /> Call 409-455-1963</a>
                 </div>
