@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { ArrowLeft, ArrowRight, Check, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Clock, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -55,10 +55,10 @@ function Contact() {
               <p className="mt-4 text-xs uppercase tracking-widest text-[var(--brand-deep)]/60">Call</p>
               <p className="mt-1 font-display text-2xl text-[var(--brand-deep)]">409-455-1963</p>
             </a>
-            <a href="mailto:hello@roadrunnerexpress.co" className="rounded-2xl bg-white p-6 border border-[color-mix(in_oklab,var(--brand)_10%,transparent)] hover-lift">
+            <a href="mailto:roadrunnerexpresinc@gmail.com" className="rounded-2xl bg-white p-6 border border-[color-mix(in_oklab,var(--brand)_10%,transparent)] hover-lift">
               <Mail className="h-5 w-5 text-[var(--ember)]" />
               <p className="mt-4 text-xs uppercase tracking-widest text-[var(--brand-deep)]/60">Email</p>
-              <p className="mt-1 font-display text-lg text-[var(--brand-deep)] break-all">hello@roadrunnerexpress.co</p>
+              <p className="mt-1 font-display text-lg text-[var(--brand-deep)] break-all">roadrunnerexpresinc@gmail.com</p>
             </a>
             <div className="rounded-2xl bg-white p-6 border border-[color-mix(in_oklab,var(--brand)_10%,transparent)]">
               <MapPin className="h-5 w-5 text-[var(--ember)]" />
