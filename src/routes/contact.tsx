@@ -7,10 +7,13 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | Roadrunner Express Senior Concierge · Houston" },
-      { name: "description", content: "Reach Roadrunner Express in North Houston. Call 409-455-1963 or send us a message and we'll respond within one business day." },
-      { property: "og:title", content: "Contact Roadrunner Express" },
+      { title: "Contact | Senior Concierge Services in Houston | Roadrunner Express" },
+      { name: "description", content: "Contact Roadrunner Express in Houston, TX. Call 409-455-1963 or send a message — we serve Houston and surrounding communities and reply within one business day." },
+      { property: "og:title", content: "Contact Roadrunner Express · Houston Senior Concierge" },
+      { property: "og:description", content: "Serving Houston and surrounding communities. Call 409-455-1963 to schedule concierge service." },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: Contact,
 });
@@ -80,7 +83,7 @@ function Contact() {
               We're a phone call <em className="italic text-[var(--ember)]">away.</em>
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-[var(--brand-deep)]/75 max-w-xl animate-rise delay-2">
-              Prefer a form? Fill in a few details and we'll follow up personally within one business day.
+              Serving Houston and surrounding communities. Prefer a form? Fill in a few details and we'll follow up personally within one business day.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 animate-rise delay-3">

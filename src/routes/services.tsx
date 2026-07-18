@@ -11,10 +11,13 @@ import { IMG } from "@/lib/assets";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services | Roadrunner Express Senior Concierge · Houston" },
-      { name: "description", content: "Grocery shopping, pharmacy pickup, personal transportation, pet transport and more — a full concierge suite for seniors in Houston." },
-      { property: "og:title", content: "Senior Concierge Services · Houston" },
+      { title: "Senior Concierge Services in Houston, TX | Roadrunner Express" },
+      { name: "description", content: "Professional senior concierge and errand services in Houston — grocery shopping, prescription pickups, transportation, dry cleaning and everyday assistance for older adults." },
+      { property: "og:title", content: "Senior Concierge Services in Houston, TX | Roadrunner Express" },
+      { property: "og:description", content: "Grocery shopping, pharmacy pickup, personal transportation and more — professional concierge services for Houston seniors." },
+      { property: "og:url", content: "/services" },
     ],
+    links: [{ rel: "canonical", href: "/services" }],
   }),
   component: Services,
 });
@@ -46,7 +49,7 @@ function Services() {
             The everyday, taken care of — with a <em className="italic text-[var(--ember)]">quiet grace.</em>
           </h1>
           <p className="mt-8 text-lg leading-relaxed text-[var(--brand-deep)]/75 max-w-2xl animate-rise delay-2">
-            A single phone call opens up a full menu of concierge care. Mix and match — or ask us to handle the whole afternoon.
+            Roadrunner Express provides professional concierge and errand services for seniors throughout Houston. Whether you need grocery shopping, prescription pickups, transportation to appointments, dry cleaning, or assistance with everyday tasks, our friendly team is here to help older adults maintain their independence.
           </p>
         </div>
       </section>

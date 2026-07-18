@@ -77,13 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Roadrunner Express | Senior Concierge & Errand Service in Houston" },
-      { name: "description", content: "Reliable, compassionate concierge and errand services for seniors in Houston, TX. Grocery, pharmacy, transportation and more — no app required. Call 409-455-1963." },
+      { title: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
+      { name: "description", content: "Roadrunner Express provides trusted concierge and errand services for seniors in Houston, Texas — grocery shopping, prescription pickups, transportation, companionship and everyday assistance." },
       { name: "author", content: "Roadrunner Express" },
-      { property: "og:title", content: "Roadrunner Express — Delivering More Than Packages" },
-      { property: "og:description", content: "Premium senior concierge, errand and transportation services in Houston. Book by phone, no app needed." },
+      { property: "og:title", content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
+      { property: "og:description", content: "Trusted concierge and errand services for seniors in Houston, Texas. Grocery, prescriptions, transportation, companionship and everyday help — one phone call away." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Roadrunner Express" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
+      { name: "twitter:description", content: "Trusted senior concierge and errand services in Houston, Texas." },
+      { name: "theme-color", content: "#1e3a8a" },
     ],
     links: [
       {

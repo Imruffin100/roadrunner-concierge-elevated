@@ -6,10 +6,13 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing | Roadrunner Express Senior Concierge" },
-      { name: "description", content: "Simple, transparent pricing for senior errand, transportation and concierge services in Houston. VIP membership and monthly plans available." },
-      { property: "og:title", content: "Simple, Transparent Pricing" },
+      { title: "Pricing | Senior Concierge & Errand Services in Houston | Roadrunner Express" },
+      { name: "description", content: "Simple, transparent pricing for senior concierge and errand services in Houston, TX. Flat rates, VIP membership and monthly plans — no hidden fees." },
+      { property: "og:title", content: "Pricing | Roadrunner Express Senior Concierge · Houston" },
+      { property: "og:description", content: "Flat, transparent rates and VIP memberships for senior errand and transportation services in Houston." },
+      { property: "og:url", content: "/pricing" },
     ],
+    links: [{ rel: "canonical", href: "/pricing" }],
   }),
   component: Pricing,
 });
@@ -134,6 +137,19 @@ function Pricing() {
                 <p className="mt-3 text-[var(--brand-deep)]/70">Cash · Card · Check · Apple Pay · Cash App · Zelle</p>
               </div>
               <a href="tel:4094551963" className="btn-primary"><Phone className="h-4 w-4" /> Call to book</a>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="mt-10 rounded-[2rem] bg-[var(--brand-deep)] text-white p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <p className="text-xs font-medium tracking-[0.22em] uppercase text-[var(--ember-soft)]">Ready when you are</p>
+                <h3 className="mt-3 font-display text-3xl md:text-4xl">Ready to Get Started?</h3>
+                <p className="mt-3 text-white/75 max-w-lg leading-relaxed">One phone call is all it takes to schedule your first concierge service.</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="tel:4094551963" aria-label="Call Roadrunner Express now" className="btn-primary"><Phone className="h-4 w-4" /> Call Now</a>
+                <Link to="/contact" className="btn-ghost bg-white/10 border-white/25 text-white hover:bg-white/20">Request Service <ArrowRight className="h-4 w-4" /></Link>
+              </div>
             </div>
           </Reveal>
         </div>

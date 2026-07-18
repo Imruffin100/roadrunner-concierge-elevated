@@ -7,11 +7,13 @@ import { IMG } from "@/lib/assets";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Roadrunner Express | Senior Concierge in Houston" },
-      { name: "description", content: "The story behind Roadrunner Express — a Houston senior concierge service built on dignity, compassion and community." },
-      { property: "og:title", content: "About Roadrunner Express" },
-      { property: "og:description", content: "Locally owned senior concierge service in Houston. Compassion, community, and reliable everyday care." },
+      { title: "About Roadrunner Express | Locally Owned Senior Concierge in Houston, TX" },
+      { name: "description", content: "Roadrunner Express is a locally owned Houston senior concierge service helping older adults stay independent — with peace of mind for the families who love them." },
+      { property: "og:title", content: "About Roadrunner Express | Senior Concierge in Houston, TX" },
+      { property: "og:description", content: "Locally owned Houston senior concierge service dedicated to independence, dignity and reliable everyday care." },
+      { property: "og:url", content: "/about" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
@@ -61,6 +63,7 @@ function About() {
               <p>We treat every client with dignity, patience, and respect. It's the standard our founder learned watching her grandmother — and the standard we hold every driver to today.</p>
               <p>Unlike technology-based delivery companies, our services are available with nothing more than a simple phone call. That's not a limitation. That's the point.</p>
               <p>From grocery runs and pharmacy pickups to companion transportation and gentle home management, we handle the everyday so families can enjoy the extraordinary.</p>
+              <p>Roadrunner Express is a locally owned Houston concierge service dedicated to helping seniors throughout Houston, North Houston, Cypress and Spring remain independent at home — while giving their families the peace of mind of knowing a trusted local team is only a phone call away.</p>
             </div>
           </Reveal>
         </div>
