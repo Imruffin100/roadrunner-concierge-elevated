@@ -323,6 +323,25 @@ function Index() {
 
       {/* FINAL CTA */}
       <section className="pb-24">
+        <div className="container-luxe pb-24">
+          <div className="max-w-2xl">
+            <Reveal><p className="eyebrow">Why families choose us</p></Reveal>
+            <Reveal delay={80}><h2 className="mt-4 font-display text-4xl sm:text-5xl leading-[1.05] text-[var(--brand-deep)]">Why Families Choose Roadrunner Express</h2></Reveal>
+          </div>
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {whyChoose.map((w, i) => (
+              <Reveal key={w.t} delay={i * 60}>
+                <article className="h-full rounded-[1.4rem] bg-white p-8 border border-[color-mix(in_oklab,var(--brand)_8%,transparent)] hover-lift">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--ember-soft)] text-[var(--ember)]">
+                    <w.icon className="h-6 w-6" aria-hidden />
+                  </div>
+                  <h3 className="mt-6 font-display text-2xl text-[var(--brand-deep)]">{w.t}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[var(--brand-deep)]/70">{w.d}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
         <div className="container-luxe">
           <Reveal>
             <div className="relative overflow-hidden rounded-[2rem] p-10 md:p-16 lg:p-20 bg-gradient-to-br from-[var(--brand-deep)] via-[var(--brand)] to-[var(--brand-deep)] text-white">
