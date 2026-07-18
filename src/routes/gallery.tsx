@@ -6,21 +6,24 @@ import { IMG } from "@/lib/assets";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery | Roadrunner Express" },
-      { name: "description", content: "A look at the everyday moments — deliveries, rides and companionship — that define our senior concierge service in Houston." },
-      { property: "og:title", content: "Roadrunner Express Gallery" },
+      { title: "Gallery | Senior Concierge Services in Houston | Roadrunner Express" },
+      { name: "description", content: "See Roadrunner Express in action — senior grocery assistance, prescription pickups, companionship and transportation for seniors across Houston, Texas." },
+      { property: "og:title", content: "Gallery | Roadrunner Express Senior Concierge · Houston" },
+      { property: "og:description", content: "Moments of care from Houston's trusted senior concierge team." },
+      { property: "og:url", content: "/gallery" },
     ],
+    links: [{ rel: "canonical", href: "/gallery" }],
   }),
   component: Gallery,
 });
 
 const items = [
-  { src: IMG.van, alt: "The Roadrunner Express service vehicle parked outside a Houston home.", span: "md:col-span-2 md:row-span-2 aspect-[4/3]" },
-  { src: IMG.delivery, alt: "A friendly courier delivering a package to a senior client.", span: "aspect-[3/4]" },
-  { src: IMG.companion, alt: "A senior client and her dog visiting with a Roadrunner team member.", span: "aspect-[3/4]" },
-  { src: IMG.transport, alt: "A Roadrunner driver helping a senior into a car for an appointment.", span: "md:col-span-2 aspect-[16/9]" },
-  { src: IMG.delivery, alt: "A doorstep delivery captured mid-smile.", span: "aspect-[4/5]" },
-  { src: IMG.companion, alt: "In-home companionship for a client and her pet.", span: "aspect-[4/5]" },
+  { src: IMG.van, alt: "Roadrunner Express service vehicle in Houston, Texas", caption: "Roadrunner Express service vehicle in Houston", span: "md:col-span-2 md:row-span-2 aspect-[4/3]" },
+  { src: IMG.delivery, alt: "Senior concierge delivering prescription medication to an elderly client", caption: "Prescription pickup services", span: "aspect-[3/4]" },
+  { src: IMG.companion, alt: "Friendly concierge assisting elderly client at home with her dog", caption: "Friendly concierge assistance", span: "aspect-[3/4]" },
+  { src: IMG.transport, alt: "Houston senior transportation — helping a senior into the vehicle for a medical appointment", caption: "Transportation for medical appointments", span: "md:col-span-2 aspect-[16/9]" },
+  { src: IMG.delivery, alt: "Roadrunner Express employee helping senior with groceries at the front door", caption: "Senior grocery assistance in Houston", span: "aspect-[4/5]" },
+  { src: IMG.companion, alt: "In-home companion visit helping a senior remain independent in Houston", caption: "Helping seniors remain independent", span: "aspect-[4/5]" },
 ];
 
 function Gallery() {
@@ -42,14 +45,19 @@ function Gallery() {
           <div className="grid md:grid-cols-3 gap-5">
             {items.map((it, i) => (
               <Reveal key={i} delay={(i % 3) * 80} className={it.span}>
-                <div className="group relative h-full w-full overflow-hidden rounded-[1.6rem]">
-                  <img
-                    src={it.src}
-                    alt={it.alt}
-                    className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.06]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-deep)]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+                <figure className="h-full w-full">
+                  <div className="group relative h-full w-full overflow-hidden rounded-[1.6rem]">
+                    <img
+                      src={it.src}
+                      alt={it.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.06]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-deep)]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-[var(--brand-deep)]/70 tracking-tight">{it.caption}</figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
