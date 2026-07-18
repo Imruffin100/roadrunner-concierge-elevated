@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import {
   ShoppingBag, Pill, Car, PawPrint, FileText, HomeIcon, Phone, ArrowRight,
   ShieldCheck, HeartHandshake, MapPin, PhoneCall, Sparkles, Users,
+  BadgeCheck, CalendarClock, Smile,
 } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
@@ -11,11 +12,15 @@ import { IMG } from "@/lib/assets";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Roadrunner Express | Senior Concierge & Errand Service · Houston" },
-      { name: "description", content: "Compassionate errands, transportation and concierge care for seniors across Houston. No app required — just a phone call. Call 409-455-1963." },
-      { property: "og:title", content: "Roadrunner Express — Delivering More Than Packages" },
-      { property: "og:image", content: "https://cdn.gpteng.co/blank-app-v1.svg" },
+      { title: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
+      { name: "description", content: "Roadrunner Express provides trusted concierge and errand services for seniors in Houston, Texas including grocery shopping, prescription pickups, transportation, companionship and everyday assistance." },
+      { name: "keywords", content: "Senior Concierge Houston, Senior Errand Service Houston, Concierge Service Houston, Senior Transportation Houston, Elder Assistance Houston, Grocery Shopping for Seniors, Prescription Pickup Houston, Companion Services Houston" },
+      { property: "og:title", content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
+      { property: "og:description", content: "Trusted concierge and errand services for seniors in Houston, Texas. One phone call — no apps required." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -23,8 +28,10 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Roadrunner Express",
-          description: "Senior concierge and errand service in Houston, TX.",
+          description: "Trusted senior concierge and errand services in Houston, Texas — grocery shopping, prescription pickups, transportation, companionship and everyday assistance.",
           telephone: "+1-409-455-1963",
+          email: "roadrunnerexpresinc@gmail.com",
+          priceRange: "$$",
           address: {
             "@type": "PostalAddress",
             streetAddress: "3707 Cypress Creek Pkwy, Suite 310",
@@ -49,6 +56,15 @@ const trustBadges = [
   { icon: PhoneCall, label: "Book by Phone" },
   { icon: Sparkles, label: "Predictable Pricing" },
   { icon: Users, label: "Trusted by Families" },
+];
+
+const whyChoose = [
+  { icon: BadgeCheck, t: "Background Checked Team", d: "Every driver is vetted, trained and personally trusted with your loved ones." },
+  { icon: Smile, t: "Friendly Local Service", d: "A small, familiar Houston team — the neighbor you always wished you had." },
+  { icon: CalendarClock, t: "Reliable Scheduling", d: "On time, every time. We show up when we say we will." },
+  { icon: ShieldCheck, t: "Insured & Dependable", d: "Fully insured service, so families can breathe easier." },
+  { icon: PhoneCall, t: "Simple Phone Booking", d: "No apps, no downloads. One friendly number does it all." },
+  { icon: MapPin, t: "Serving Houston Seniors", d: "Locally owned, proudly serving Houston and surrounding communities." },
 ];
 
 const services = [
@@ -92,15 +108,18 @@ function Index() {
         </div>
         <div className="container-luxe grid lg:grid-cols-[1.05fr_1fr] gap-14 items-center">
           <div>
-            <p className="eyebrow animate-rise">Senior Concierge · Houston, TX</p>
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-[5.2rem] leading-[0.98] font-light text-[var(--brand-deep)] animate-rise delay-1">
-              Delivering more<br/>than <em className="font-normal italic text-[var(--ember)]">packages.</em>
+            <p className="eyebrow animate-rise">Trusted Senior Concierge Services · Houston, Texas</p>
+            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-[4.6rem] leading-[1.02] font-light text-[var(--brand-deep)] animate-rise delay-1">
+              Trusted Senior Concierge &amp; Errand Services in <em className="font-normal italic text-[var(--ember)]">Houston, TX.</em>
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--brand-deep)]/75 animate-rise delay-2">
-              A dignified concierge and errand service for seniors — grocery runs, prescription pickups, transportation and gentle everyday help. No apps, no downloads. Just a friendly phone call.
+            <p className="mt-6 font-display text-2xl sm:text-3xl text-[var(--brand-deep)]/85 animate-rise delay-2">
+              Delivering more than packages.
+            </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--brand-deep)]/75 animate-rise delay-2">
+              Roadrunner Express helps seniors throughout Houston maintain their independence with trusted concierge and errand services including grocery shopping, prescription pickups, transportation, dry cleaning, personal errands, and everyday assistance. One phone call connects you with a friendly local team — no apps or downloads required.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4 animate-rise delay-3">
-              <a href="tel:4094551963" className="btn-primary">
+              <a href="tel:4094551963" aria-label="Call Roadrunner Express at 409-455-1963" className="btn-primary">
                 <Phone className="h-4 w-4" /> Call 409-455-1963
               </a>
               <Link to="/contact" className="btn-ghost">
