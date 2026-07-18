@@ -30,10 +30,13 @@ const faqs = [
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ | Roadrunner Express Senior Concierge · Houston" },
-      { name: "description", content: "Answers to common questions about our Houston senior concierge service — booking, pricing, service area and more." },
-      { property: "og:title", content: "Frequently Asked Questions · Roadrunner Express" },
+      { title: "FAQ | Senior Concierge & Errand Services Houston | Roadrunner Express" },
+      { name: "description", content: "Answers about Roadrunner Express senior concierge and errand services in Houston — booking by phone, pricing, service area, drivers and more." },
+      { property: "og:title", content: "FAQ | Roadrunner Express Senior Concierge · Houston" },
+      { property: "og:description", content: "Common questions about Houston's trusted senior concierge and errand service." },
+      { property: "og:url", content: "/faq" },
     ],
+    links: [{ rel: "canonical", href: "/faq" }],
     scripts: [
       {
         type: "application/ld+json",
