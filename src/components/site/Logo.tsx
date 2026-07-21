@@ -3,7 +3,11 @@ import logoSrc from "@/assets/roadrunner-logo-sharp.png";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className={`inline-flex items-center ${className}`} aria-label="Roadrunner Express — Courier & Concierge for Seniors home">
+    <Link
+      to="/"
+      className={`inline-flex items-center ${className}`}
+      aria-label="Roadrunner Express — Courier & Concierge for Seniors home"
+    >
       <img
         src={logoSrc}
         alt="Roadrunner Express — Courier & Concierge for Seniors"

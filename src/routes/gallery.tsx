@@ -7,9 +7,16 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery | Senior Concierge Services in Houston | Roadrunner Express" },
-      { name: "description", content: "See Roadrunner Express in action — senior grocery assistance, prescription pickups, companionship and transportation for seniors across Houston, Texas." },
+      {
+        name: "description",
+        content:
+          "See Roadrunner Express in action — senior grocery assistance, prescription pickups, companionship and transportation for seniors across Houston, Texas.",
+      },
       { property: "og:title", content: "Gallery | Roadrunner Express Senior Concierge · Houston" },
-      { property: "og:description", content: "Moments of care from Houston's trusted senior concierge team." },
+      {
+        property: "og:description",
+        content: "Moments of care from Houston's trusted senior concierge team.",
+      },
       { property: "og:url", content: "/gallery" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
@@ -18,12 +25,42 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const items = [
-  { src: IMG.van, alt: "Roadrunner Express service vehicle in Houston, Texas", caption: "Roadrunner Express service vehicle in Houston", span: "md:col-span-2 md:row-span-2 aspect-[4/3]" },
-  { src: IMG.delivery, alt: "Senior concierge delivering prescription medication to an elderly client", caption: "Prescription pickup services", span: "aspect-[3/4]" },
-  { src: IMG.companion, alt: "Friendly concierge assisting elderly client at home with her dog", caption: "Friendly concierge assistance", span: "aspect-[3/4]" },
-  { src: IMG.transport, alt: "Houston senior transportation — helping a senior into the vehicle for a medical appointment", caption: "Transportation for medical appointments", span: "md:col-span-2 aspect-[16/9]" },
-  { src: IMG.delivery, alt: "Roadrunner Express employee helping senior with groceries at the front door", caption: "Senior grocery assistance in Houston", span: "aspect-[4/5]" },
-  { src: IMG.companion, alt: "In-home companion visit helping a senior remain independent in Houston", caption: "Helping seniors remain independent", span: "aspect-[4/5]" },
+  {
+    src: IMG.van,
+    alt: "Roadrunner Express service vehicle in Houston, Texas",
+    caption: "Roadrunner Express service vehicle in Houston",
+    span: "md:col-span-2 md:row-span-2 aspect-[4/3]",
+  },
+  {
+    src: IMG.delivery,
+    alt: "Senior concierge delivering prescription medication to an elderly client",
+    caption: "Prescription pickup services",
+    span: "aspect-[3/4]",
+  },
+  {
+    src: IMG.companion,
+    alt: "Friendly concierge assisting elderly client at home with her dog",
+    caption: "Friendly concierge assistance",
+    span: "aspect-[3/4]",
+  },
+  {
+    src: IMG.transport,
+    alt: "Houston senior transportation — helping a senior into the vehicle for a medical appointment",
+    caption: "Transportation for medical appointments",
+    span: "md:col-span-2 aspect-[16/9]",
+  },
+  {
+    src: IMG.delivery,
+    alt: "Roadrunner Express employee helping senior with groceries at the front door",
+    caption: "Senior grocery assistance in Houston",
+    span: "aspect-[4/5]",
+  },
+  {
+    src: IMG.companion,
+    alt: "In-home companion visit helping a senior remain independent in Houston",
+    caption: "Helping seniors remain independent",
+    span: "aspect-[4/5]",
+  },
 ];
 
 function Gallery() {
@@ -56,7 +93,9 @@ function Gallery() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-deep)]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <figcaption className="mt-3 text-sm text-[var(--brand-deep)]/70 tracking-tight">{it.caption}</figcaption>
+                  <figcaption className="mt-3 text-sm text-[var(--brand-deep)]/70 tracking-tight">
+                    {it.caption}
+                  </figcaption>
                 </figure>
               </Reveal>
             ))}
