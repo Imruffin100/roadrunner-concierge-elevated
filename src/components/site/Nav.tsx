@@ -25,7 +25,9 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "backdrop-blur-xl bg-[color-mix(in_oklab,var(--cream)_75%,transparent)] border-b border-[color-mix(in_oklab,var(--brand)_10%,transparent)]" : "bg-transparent"
+        scrolled
+          ? "backdrop-blur-xl bg-[color-mix(in_oklab,var(--cream)_75%,transparent)] border-b border-[color-mix(in_oklab,var(--brand)_10%,transparent)]"
+          : "bg-transparent"
       }`}
     >
       <div className="container-luxe flex h-20 items-center justify-between gap-6">
@@ -36,7 +38,10 @@ export function Nav() {
               key={l.to}
               to={l.to}
               className="rounded-full px-4 py-2 text-sm font-medium text-[var(--brand-deep)]/80 transition hover:text-[var(--brand-deep)] hover:bg-white/60"
-              activeProps={{ className: "rounded-full px-4 py-2 text-sm font-medium text-[var(--brand-deep)] bg-white/70 shadow-sm" }}
+              activeProps={{
+                className:
+                  "rounded-full px-4 py-2 text-sm font-medium text-[var(--brand-deep)] bg-white/70 shadow-sm",
+              }}
               activeOptions={{ exact: true }}
             >
               {l.label}
