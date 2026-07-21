@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -78,15 +79,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
-      { name: "description", content: "Roadrunner Express provides trusted concierge and errand services for seniors in Houston, Texas — grocery shopping, prescription pickups, transportation, companionship and everyday assistance." },
+      {
+        name: "description",
+        content:
+          "Roadrunner Express provides trusted concierge and errand services for seniors in Houston, Texas — grocery shopping, prescription pickups, transportation, companionship and everyday assistance.",
+      },
       { name: "author", content: "Roadrunner Express" },
-      { property: "og:title", content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
-      { property: "og:description", content: "Trusted concierge and errand services for seniors in Houston, Texas. Grocery, prescriptions, transportation, companionship and everyday help — one phone call away." },
+      {
+        property: "og:title",
+        content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX",
+      },
+      {
+        property: "og:description",
+        content:
+          "Trusted concierge and errand services for seniors in Houston, Texas. Grocery, prescriptions, transportation, companionship and everyday help — one phone call away.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Roadrunner Express" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX" },
-      { name: "twitter:description", content: "Trusted senior concierge and errand services in Houston, Texas." },
+      {
+        name: "twitter:title",
+        content: "Senior Concierge & Errand Services | Roadrunner Express Houston, TX",
+      },
+      {
+        name: "twitter:description",
+        content: "Trusted senior concierge and errand services in Houston, Texas.",
+      },
       { name: "theme-color", content: "#1e3a8a" },
     ],
     links: [
@@ -97,7 +115,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -115,6 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <SpeedInsights />
       </body>
     </html>
   );

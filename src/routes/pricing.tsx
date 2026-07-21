@@ -7,9 +7,17 @@ export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing | Senior Concierge & Errand Services in Houston | Roadrunner Express" },
-      { name: "description", content: "Simple, transparent pricing for senior concierge and errand services in Houston, TX. Flat rates, VIP membership and monthly plans — no hidden fees." },
+      {
+        name: "description",
+        content:
+          "Simple, transparent pricing for senior concierge and errand services in Houston, TX. Flat rates, VIP membership and monthly plans — no hidden fees.",
+      },
       { property: "og:title", content: "Pricing | Roadrunner Express Senior Concierge · Houston" },
-      { property: "og:description", content: "Flat, transparent rates and VIP memberships for senior errand and transportation services in Houston." },
+      {
+        property: "og:description",
+        content:
+          "Flat, transparent rates and VIP memberships for senior errand and transportation services in Houston.",
+      },
       { property: "og:url", content: "/pricing" },
     ],
     links: [{ rel: "canonical", href: "/pricing" }],
@@ -31,7 +39,12 @@ const plans = [
     unit: "per errand",
     tag: "Most popular",
     featured: true,
-    perks: ["Discounted errand rate", "Priority scheduling", "Familiar drivers", "Monthly billing available"],
+    perks: [
+      "Discounted errand rate",
+      "Priority scheduling",
+      "Familiar drivers",
+      "Monthly billing available",
+    ],
   },
   {
     name: "Monthly Plan",
@@ -68,10 +81,12 @@ function Pricing() {
         <div className="container-luxe max-w-4xl">
           <p className="eyebrow animate-rise">Pricing</p>
           <h1 className="mt-6 font-display text-5xl lg:text-7xl leading-[0.98] text-[var(--brand-deep)] animate-rise delay-1">
-            Kind, transparent, and always <em className="italic text-[var(--ember)]">predictable.</em>
+            Kind, transparent, and always{" "}
+            <em className="italic text-[var(--ember)]">predictable.</em>
           </h1>
           <p className="mt-8 text-lg leading-relaxed text-[var(--brand-deep)]/75 max-w-2xl animate-rise delay-2">
-            No surge fees. No hidden charges. Just clear, flat pricing designed to feel fair — every single time.
+            No surge fees. No hidden charges. Just clear, flat pricing designed to feel fair — every
+            single time.
           </p>
         </div>
       </section>
@@ -80,19 +95,47 @@ function Pricing() {
         <div className="container-luxe grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {plans.map((p, i) => (
             <Reveal key={p.name} delay={i * 70}>
-              <div className={`h-full rounded-[1.5rem] p-8 flex flex-col border ${p.featured ? "bg-[var(--brand-deep)] text-white border-[var(--brand-deep)] shadow-[0_30px_60px_-30px_oklch(0.22_0.08_258/0.6)]" : "bg-white border-[color-mix(in_oklab,var(--brand)_10%,transparent)]"} hover-lift`}>
-                <div className={`text-xs font-medium tracking-[0.22em] uppercase ${p.featured ? "text-[var(--ember-soft)]" : "text-[var(--ember)]"}`}>{p.tag}</div>
-                <h2 className={`mt-4 font-display text-3xl ${p.featured ? "text-white" : "text-[var(--brand-deep)]"}`}>{p.name}</h2>
-                <div className="mt-6 flex items-baseline gap-2">
-                  <span className={`font-display text-6xl ${p.featured ? "text-white" : "text-[var(--brand-deep)]"}`}>{p.price}</span>
-                  <span className={`text-sm ${p.featured ? "text-white/70" : "text-[var(--brand-deep)]/60"}`}>{p.unit}</span>
+              <div
+                className={`h-full rounded-[1.5rem] p-8 flex flex-col border ${p.featured ? "bg-[var(--brand-deep)] text-white border-[var(--brand-deep)] shadow-[0_30px_60px_-30px_oklch(0.22_0.08_258/0.6)]" : "bg-white border-[color-mix(in_oklab,var(--brand)_10%,transparent)]"} hover-lift`}
+              >
+                <div
+                  className={`text-xs font-medium tracking-[0.22em] uppercase ${p.featured ? "text-[var(--ember-soft)]" : "text-[var(--ember)]"}`}
+                >
+                  {p.tag}
                 </div>
-                <ul className={`mt-8 space-y-3 text-[15px] flex-1 ${p.featured ? "text-white/80" : "text-[var(--brand-deep)]/75"}`}>
+                <h2
+                  className={`mt-4 font-display text-3xl ${p.featured ? "text-white" : "text-[var(--brand-deep)]"}`}
+                >
+                  {p.name}
+                </h2>
+                <div className="mt-6 flex items-baseline gap-2">
+                  <span
+                    className={`font-display text-6xl ${p.featured ? "text-white" : "text-[var(--brand-deep)]"}`}
+                  >
+                    {p.price}
+                  </span>
+                  <span
+                    className={`text-sm ${p.featured ? "text-white/70" : "text-[var(--brand-deep)]/60"}`}
+                  >
+                    {p.unit}
+                  </span>
+                </div>
+                <ul
+                  className={`mt-8 space-y-3 text-[15px] flex-1 ${p.featured ? "text-white/80" : "text-[var(--brand-deep)]/75"}`}
+                >
                   {p.perks.map((k) => (
-                    <li key={k} className="flex gap-3"><Check className={`h-5 w-5 shrink-0 ${p.featured ? "text-[var(--ember-soft)]" : "text-[var(--ember)]"}`} /> {k}</li>
+                    <li key={k} className="flex gap-3">
+                      <Check
+                        className={`h-5 w-5 shrink-0 ${p.featured ? "text-[var(--ember-soft)]" : "text-[var(--ember)]"}`}
+                      />{" "}
+                      {k}
+                    </li>
                   ))}
                 </ul>
-                <a href="tel:4094551963" className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium ${p.featured ? "bg-[var(--ember)] text-white" : "bg-[var(--brand-soft)] text-[var(--brand-deep)] hover:bg-[var(--brand)] hover:text-white transition"}`}>
+                <a
+                  href="tel:4094551963"
+                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium ${p.featured ? "bg-[var(--ember)] text-white" : "bg-[var(--brand-soft)] text-[var(--brand-deep)] hover:bg-[var(--brand)] hover:text-white transition"}`}
+                >
                   <Phone className="h-4 w-4" /> Call to enroll
                 </a>
               </div>
@@ -105,11 +148,20 @@ function Pricing() {
         <div className="container-luxe grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
           <Reveal>
             <p className="eyebrow">Add-ons & rates</p>
-            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-[var(--brand-deep)] leading-tight">Additional options, priced clearly.</h2>
-            <p className="mt-6 text-[var(--brand-deep)]/70 max-w-lg leading-relaxed">Every add-on is optional. Every rate is flat. If you'd rather talk through it, we're a phone call away.</p>
+            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-[var(--brand-deep)] leading-tight">
+              Additional options, priced clearly.
+            </h2>
+            <p className="mt-6 text-[var(--brand-deep)]/70 max-w-lg leading-relaxed">
+              Every add-on is optional. Every rate is flat. If you'd rather talk through it, we're a
+              phone call away.
+            </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="tel:4094551963" className="btn-primary"><Phone className="h-4 w-4" /> 409-455-1963</a>
-              <Link to="/contact" className="btn-ghost">Get a written quote <ArrowRight className="h-4 w-4" /></Link>
+              <a href="tel:4094551963" className="btn-primary">
+                <Phone className="h-4 w-4" /> 409-455-1963
+              </a>
+              <Link to="/contact" className="btn-ghost">
+                Get a written quote <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </Reveal>
           <Reveal delay={120}>
@@ -133,22 +185,43 @@ function Pricing() {
             <div className="rounded-[2rem] bg-[color-mix(in_oklab,var(--brand-soft)_60%,var(--cream))] p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
                 <p className="eyebrow">Payment</p>
-                <h3 className="mt-3 font-display text-3xl text-[var(--brand-deep)]">Pay whichever way is easiest for you.</h3>
-                <p className="mt-3 text-[var(--brand-deep)]/70">Cash · Card · Check · Apple Pay · Cash App · Zelle</p>
+                <h3 className="mt-3 font-display text-3xl text-[var(--brand-deep)]">
+                  Pay whichever way is easiest for you.
+                </h3>
+                <p className="mt-3 text-[var(--brand-deep)]/70">
+                  Cash · Card · Check · Apple Pay · Cash App · Zelle
+                </p>
               </div>
-              <a href="tel:4094551963" className="btn-primary"><Phone className="h-4 w-4" /> Call to book</a>
+              <a href="tel:4094551963" className="btn-primary">
+                <Phone className="h-4 w-4" /> Call to book
+              </a>
             </div>
           </Reveal>
           <Reveal>
             <div className="mt-10 rounded-[2rem] bg-[var(--brand-deep)] text-white p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <p className="text-xs font-medium tracking-[0.22em] uppercase text-[var(--ember-soft)]">Ready when you are</p>
+                <p className="text-xs font-medium tracking-[0.22em] uppercase text-[var(--ember-soft)]">
+                  Ready when you are
+                </p>
                 <h3 className="mt-3 font-display text-3xl md:text-4xl">Ready to Get Started?</h3>
-                <p className="mt-3 text-white/75 max-w-lg leading-relaxed">One phone call is all it takes to schedule your first concierge service.</p>
+                <p className="mt-3 text-white/75 max-w-lg leading-relaxed">
+                  One phone call is all it takes to schedule your first concierge service.
+                </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="tel:4094551963" aria-label="Call Roadrunner Express now" className="btn-primary"><Phone className="h-4 w-4" /> Call Now</a>
-                <Link to="/contact" className="btn-ghost bg-white/10 border-white/25 text-white hover:bg-white/20">Request Service <ArrowRight className="h-4 w-4" /></Link>
+                <a
+                  href="tel:4094551963"
+                  aria-label="Call Roadrunner Express now"
+                  className="btn-primary"
+                >
+                  <Phone className="h-4 w-4" /> Call Now
+                </a>
+                <Link
+                  to="/contact"
+                  className="btn-ghost bg-white/10 border-white/25 text-white hover:bg-white/20"
+                >
+                  Request Service <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </Reveal>
